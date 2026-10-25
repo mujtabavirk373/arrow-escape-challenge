@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#112244"/>
+      <stop offset="100%" stop-color="#070b16"/>
+    </radialGradient>
+    <linearGradient id="arrow-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="50%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="tile-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142647"/>
+      <stop offset="100%" stop-color="#0a1324"/>
+    </linearGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="512" height="512" rx="110" fill="url(#bg-glow)" stroke="#1e3a6a" stroke-width="4"/>
+
+  <!-- Subtle 3x3 Puzzle Grid Cells -->
+  <g opacity="0.65">
+    <rect x="76" y="76" width="100" height="100" rx="20" fill="url(#tile-grad)" stroke="#1b345e" stroke-width="3"/>
+    <rect x="206" y="76" width="100" height="100" rx="20" fill="url(#tile-grad)" stroke="#1b345e" stroke-width="3"/>
+    <rect x="336" y="76" width="100" height="100" rx="20" fill="url(#tile-grad)" stroke="#1b345e" stroke-width="3"/>
+    <rect x="76" y="206" width="100" height="100" rx="20" fill="url(#tile-grad)" stroke="#1b345e" stroke-width="3"/>
+    <rect x="206" y="206" width="100" height="100" rx="20" fill="url(#tile-grad)" stroke="#1b345e" stroke-width="3"/>
+    <rect x="336" y="206" width="100" height="100" rx="20" fill="url(#tile-grad)" stroke="#1b345e" stroke-width="3"/>
+    <rect x="76" y="336" width="100" height="100" rx="20" fill="url(#tile-grad)" stroke="#1b345e" stroke-width="3"/>
+    <rect x="206" y="336" width="100" height="100" rx="20" fill="url(#tile-grad)" stroke="#1b345e" stroke-width="3"/>
+    <rect x="336" y="336" width="100" height="100" rx="20" fill="url(#tile-grad)" stroke="#1b345e" stroke-width="3"/>
+  </g>
+
+  <!-- Escape Dash Trajectory -->
+  <line x1="256" y1="210" x2="256" y2="40" stroke="#22d3ee" stroke-width="6" stroke-dasharray="10 8" opacity="0.8"/>
+
+  <!-- Hero Escaping Arrow in Center -->
+  <g filter="url(#neon-glow)">
+    <path
+      d="M 256 50 
+         L 390 190 
+         L 310 190 
+         L 310 390 
+         C 310 410, 290 426, 270 426 
+         L 242 426 
+         C 222 426, 202 410, 202 390 
+         L 202 190 
+         L 122 190 
+         Z"
+      fill="url(#arrow-grad)"
+      stroke="#67e8f9"
+      stroke-width="12"
+      stroke-linejoin="round"
+    />
+    <!-- Center Ridge Highlight -->
+    <line x1="256" y1="70" x2="256" y2="400" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
+    <!-- Chevron Inner Notch -->
+    <polyline points="190,200 256,134 322,200" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  </g>
+</svg>
